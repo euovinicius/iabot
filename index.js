@@ -47,3 +47,13 @@ client.on('message', async (channel, tags, message, self) => {
   client.say(channel, `@${tags.username}, ${resposta.slice(0, 400)}`);
 });
 
+const http = require('http');
+
+const PORT = process.env.PORT || 3000;
+
+http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Bot ativo!\n');
+}).listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
